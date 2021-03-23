@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The Laundrymat</title>
+  <link rel="stylesheet" href="stylesheets/theme2.css" />
+  <link rel="stylesheet" href="stylesheets/jquery.mobile.icons.min.css" />
+
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+
+<body>
+
+<!--------home page-------------------------------------------------------------------------------->
+<div data-role="page" id="home">
+
+<!--------header---->
+<div data-role="header" data-theme='b'>
+    <h1>The Laundromat</h1>
+<div data-role="navbar" data-theme='b'>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#washing">Washing</a></li>
+        <li><a href="#drying">Drying</a></li>
+        <li><a href="#payment">Payment</a></li>
+    </ul>
+</div>
+</div>
+
+<!--------page content--------->
+<div data-role="content" data-theme='b'>
+
+    <h1>About Us</h1>
+    <p1>Instructions: Please fill out you information to the left. Once you're finished you will redirected to the washing page. There you will chose your settings and once you're done, you will then be redirected to the drying page. The base price for both Washing and Drying is $10 dollars each.</p1>
+
+    <h2>Welcome to the Luandromat!</h2>
+    <p2>On this Page, you will find info about the business, as well as instructions on how to start your order. Please enter your info:</p2><br><br>
+
+    <p3>Name: <input type="text" name="name" id='name'></p3><br><br>
+
+    <p4>Number: <input type="text" name="number" id='number'></p4><br><br>
+
+  <p5>Address: <input type="text" name="address" id='address'></p5><br><br>
+  <button onclick="add()">Add</button>
+</div>
+
+
+<!----footer-->
+<div data-role="footer" data-theme='b'>
+    <h1>Website by Dashia Ricks and Yakob Logerfo</h1>
+</div>
+</div>
+
+
+<!---------washing page---------------------------------------------------------------------------------->
+<div data-role="page" id="washing">
+
+    <!--------header---->
+    <div data-role="header" data-theme='b'>
+        <h1>The Laundromat</h1>
+    <div data-role="navbar" data-theme='a'>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#washing">Washing</a></li>
+            <li><a href="#drying">Drying</a></li>
+            <li><a href="#payment">Payment</a></li>
+        </ul>
+    </div>
+    </div>
+
+    <!----content-->
+
+        <div data-role="content" data-theme='b'>
+            <h1>Welcome to the Laundromat</h1>
+        
+                    <h2>Washing Instructions:</h2>
+                    <p1>On this washing page, you will choose what size load of clothing you have, the tempurature you would like them to be washed at, and what colors they are. You can also choose which detergent you want to use from the choices we have. The base price is $10 dollars, and different options may cost extra.</p1><br><br>
+        
+            <form action="/action_page.php">
+                <label for="load">Choose a load size:</label>
+                <select name="load" id="load">
+                  <option value="Small">Small</option>
+                  <option value="Medium">Medium(+$1.25)</option>
+                  <option value="Large">Large(+$2.00)</option>
+                </select>
+                <br><br>
+              </form>
+        
+          <form action="/action_page.php">
+              <label for="temp">Choose a temperature:</label>
+              <select name="temp" id="temp">
+                <option value="Cold">Cold</option>
+                <option value="Warm">Warm</option>
+                <option value="Hot">Hot</option>
+             </select>
+                <br><br>
+              </form>
+        
+              <form action="/action_page.php">
+                <label for="colors">Choose your color:</label>
+                <select name="colors" id="colors">
+                  <option value="Darks">Darks</option>
+                  <option value="Whites">Whites</option>
+                  <option value="Colors">Colors</option>
+                </select>
+                <br><br>
+              </form>
+        
+              <form action="/action_page.php">
+                <label for="detergent">Choose a Detergent:</label>
+                <select name="detergent" id="detergent">
+                  <option value="Tide">Tide</option>
+                  <option value="Oxi clean">Oxi Clean</option>
+                  <option value="Gain">Gain</option>
+                  <option value="Ecos">Ecos(+$2.00)</option>
+                </select>
+                <br><br>
+              </form>
+              <input type="submit" value="Submit" onclick="washAdd()">
+        </div>
+
+        
+
+<!----footer-->
+<div data-role="footer" data-theme='b'>
+    <h1>Website by Dashia Ricks and Yakob Logerfo</h1>
+</div>
+</div>
+
+<!---------drying page---------------------------------------------------------------------------->
+<div data-role="page" id="drying">
+
+    <!--------header---->
+    <div data-role="header" data-theme='b'>
+        <h1>The Laundromat</h1>
+    <div data-role="navbar" data-theme='a'>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#washing">Washing</a></li>
+            <li><a href="#drying">Drying</a></li>
+            <li><a href="#payment">Payment</a></li>
+        </ul>
+    </div>
+    </div>
+
+    <!-------content-->
+    <div data-role="content" data-theme='b'>
+        <h1>Drying Instructions:</h1>
+        <p1>On this drying page, you will select how long you would like your clothes to be in the dryer, then select the temperature you want to dry with. You can also decide if you would like your clothes to be ironed or not. Once your are finished, you will be redirected to the payment page. The base price is $10, different options may cost extra.</p1>
+    
+        <h2>Dry Settings</h2>
+        <p2>Here you can customize your drying cycle.</p2><br><br>
+
+        <form action="/action_page.php">
+            <label for="time">Choose your timer:</label>
+            <select name="time" id="time">
+              <option value="15">15 Minutes</option>
+              <option value="30">30 Minutes</option>
+              <option value="45">45 Minutes</option>
+              <option value="60">60 minutes</option>
+            </select>
+            <br><br>
+          </form>
+
+
+          <form action="/action_page.php">
+            <label for="drytemp">Choose your temperature:</label>
+            <select name="drytemp" id="drytemp">
+              <option value="Cool">Cool Air</option>
+              <option value="Warm">Warm Air</option>
+              <option value="Hot">Hot Air</option>
+            </select>
+            <br><br>
+          </form>
+
+          <form action="/action_page.php">
+            <label for="iron">Would you like your clothes to be ironed?:</label>
+            <select name="iron" id="iron">
+              <option value="Yes">Yes(+$5.00)</option>
+              <option value="No">No</option>
+            </select>
+            <br><br>
+          </form>
+
+          <input type="submit" value="Submit" onclick="dryAdd()">
+
+    </div>
+
+    <!----footer-->
+<div data-role="footer" data-theme='b'>
+    <h1>Website by Dashia Ricks and Yakob Logerfo</h1>
+</div>
+</div>
+
+<!---------payment page----------------------------------------------------------------------->
+<div data-role="page" id="payment">
+
+        <!--------header---->
+        <div data-role="header" data-theme='b'>
+            <h1>The Laundromat</h1>
+        <div data-role="navbar" data-theme='a'>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#washing">Washing</a></li>
+                <li><a href="#drying">Drying</a></li>
+                <li><a href="#payment">Payment</a></li>
+            </ul>
+        </div>
+        </div>
+
+            <!-------content-->
+    <div data-role="content" data-theme='b'>
+
+        <h1>Payment Instructions:</h1>
+        <p1>Here is the payment page. Depending on the options you chose, your total will appear below. You can chose cash, credit or debit. If you choose cash, please go to the front desk to pay before service.</p1>
+
+        <h2>Payment Page</h2>
+        <div id="customerinfo"></div>
+        <div id="washinfo"></div>
+        <div id="dryinfo"></div>
+        <p2>Here are your payment options.</p2>
+
+  <form action="/action_page.php">
+    <label for="pay">Please choose your payment method:</label>
+    <select name="pay" id="pay">
+      <option value="debit">Debit</option>
+      <option value="credit">Credit</option>
+      <option value="cash">Cash</option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Show Order" onclick="getInfo()">
+    <input type="submit" value="Submit" onclick="payOff()">
+
+
+
+  </form>
+    </div>
+
+    <!----footer-->
+    <div data-role="footer" data-theme='b'>
+        <h1>Website by Dashia Ricks and Yakob Logerfo</h1>
+    </div>
+    </div>
+    <script src="javascripts/index.js"></script>
+</body>
+</html>
